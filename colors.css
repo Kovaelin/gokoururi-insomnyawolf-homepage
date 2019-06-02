@@ -1,4 +1,5 @@
-/*  Copyright 2014 gokoururi
+/*  
+    Copyright 2014 gokoururi
     This work is free. You can redistribute it and/or modify it under the
     terms of the Do What The Fuck You Want To Public License, Version 2,
     as published by Sam Hocevar. See the COPYING file for more details.
@@ -9,14 +10,26 @@
     --PBlack: #000;
     --PBlackT20: #000000D0;
     --White: #FFF;
-    --Pink: #d67b96;
     --GreyLight: lightgrey;
+    --GreyLight2: #cccccc;
     --Grey: #646464;
     --GreyDark: #373B41;
+    --GreyDark2: #1D1F21;
+    --Purple: #3c3a5c;
+    --PurpleLight : #b9b6d9;
+    --Pink: #d67b96;
+    --PinkDark: #70293b;
+    --GreenDark: #43644a;
+    --Green: #67e667;
+    --Green2: #269926;
+    --GreenLight1: #729a64;
+    --GreenLight2: #91b476;
+    --BlueLight: #81A2BE;
     --Transparent: transparent;
 
     /* Items */
     /* Global */ 
+    --BaseBackground: var(--PBlack);
     /* Body */
 
     /* Main */
@@ -33,12 +46,51 @@
     --SearchBorder: var(--GreyLight);
     
     /* Button */
-    --ButtonBorderGrey: var(--GreyDark);
-   
+    /* General */
+    --Button: var(--BlueLight);
+    --Button_Border: var(--GreyDark);
+    --Button_Background: var(--GreyDark2);
+    --Button_Hover: var(--Pink);
+    --Button_Background_Hover: var(--PinkDark);
+    --Button_Border_Left: var(--GreyDark);
+    --Button_Dropdown: var(--PinkDark);
+    --Button_Dropdown_Content: var(--Pink);
+    /* 1 */
+    --Button1: var(--GreenDark);
+    --Button1_Background: var(--GreenLight1);
+    --Button1_Border: var(--GreenLight2);
+    --Button1_Hover: var(--Green2);
+    --Button1_Background_Hover: var(--Green);
+    --Button1_Border_Hover: var(--Green);
+    
+
+    /* Columns */
+    /* General */
+    --Column_Border: var(--GreyDark);
+    --Column_Highlight_Shadow_Size: 50px;
+    --Column_List_Title: var(--GreyLight2);
+    --Column_List_Element: var(--BlueLight);
+    --Column_List_Element_Shadow: var(--GreenDark);
+    /* 1 */
+    --Column1_HighLight: var(--Purple);
+    --Column1_HighLight_Shadow: var(--PurpleLight);
+    --Column1_HighLight_Hover: var(--PurpleLight);
+    /* 2 */
+    --Column2_HighLight: var(--PinkDark);
+    --Column2_HighLight_Shadow: var(--Pink);
+    --Column2_HighLight_Hover: var(--Pink);
+    /* 3 */
+    --Column3_HighLight: var(--GreenDark);
+    --Column3_HighLight_Shadow: var(--GreenLight1);
+    --Column3_HighLight_Hover: var(--GreenLight2);
 }
 
 body {
     background-color: var(--BodyBackground);
+}
+
+#bg{
+    color: var(--BaseBackground);
 }
 
 .name-highlight {
@@ -97,110 +149,110 @@ h1 {
     background-image: url('resources/icons/stackoverflow.png');
 }
 
-/* Grey button */
+/* General Buttons */
 .button_grey > a,
 .button_grey > ul {
-    border-color: var(--ButtonBorderGrey);
+    border-color: var(--Button_Border);
 }
 .button_grey > a,
 .button_grey > ul > li > a {
-    color: #81A2BE;
-    background: #1D1F21;
+    color: var(--Button);
+    background: var(--Button_Background);
 }
 .button_grey > a:after {
-    border-left-color: #373B41;
+    border-left-color: var(--Button_Border_Left);
 }
 .button_grey:hover > a,
 .button_grey > ul > li > a:hover {
-    color: #d67b96;
-    background: #70293b;
+    color: var(--Button_Hover);
+    background: var(--Button_Background_Hover);
 }
 .button_grey:hover > a,
 .button_grey:hover > ul {
-    border-color: #70293b;
+    border-color: var(--Button_Dropdown);
 }
 .button_grey:hover > a:after {
-    border-left-color: #d67b96;
+    border-left-color: var(--Button_Dropdown_Content);
 }
 
-/* Green button */
+/* Button 1 */
 .button_green > a,
 .button_green > ul {
-    border-color: #91b476;
+    border-color: var(--Button1_Border);
 }
 .button_green > a,
 .button_green > ul > li > a {
-    color: #43644a;
-    background: #729a64;
+    color: var(--Button1);
+    background: var(--Button1_Background);
 }
 .button_green > a:after {
     border-left-color: #91b476;
 }
+
 .button_green:hover > a,
 .button_green > ul > li > a:hover {
-    color: #269926;
-    background: #67E667;
+    color: var(--Button1_Hover);
+    background: var(--Button1_Background_Hover);
 }
+
 .button_green:hover > a,
 .button_green:hover > ul {
-    border-color: #67E667;
+    border-color: var(--Button1_Border_Hover);
 }
+/*
 .button_green:hover > a:after {
     border-left-color: #269926;
 }
-
+*/
 /* column standard colors */
 .column {
-    border-right-color: #373B41;
+    border-right-color: var(--Column_Border);
 }
 .column > a,
 .column > ul > li:before {
-    color: #cccccc;
+    color: var(--Column_List_Title);
 }
 .column > a {
-    text-shadow: 0 0.5px #373B41;
-}
-.column:hover > a {
-    text-shadow:0px 0px 30px #fff !important;
-}
-.column > ul > li > a {
-    color: #81A2BE;
+    text-shadow: 0 0.5px var(--Column_List_Element_Shadow);
 }
 
-/* purple column highlight */
+.column > ul > li > a {
+    color: var(--Column_List_Element);
+}
+
+/* column highlight 1 */
 
 .column_purple:hover > a,
 .column_purple:hover > ul > li:before {
-    color: #3c3a5c;
+    color: var(--Column1_HighLight);
 }
 .column_purple:hover > a {
-    text-shadow: 0 0.5px #b9b6d9;
+    text-shadow: 0 0.5px var(--Column_Highlight_Shadow_Size) var(--Column1_HighLight_Shadow);
 }
 .column_purple > ul > li > a:hover {
-    color: #b9b6d9;
+    color: var(--Column1_HighLight_Hover);
 }
 
-/* pink column highlight */
+/* column highlight 2 */
 .column_pink:hover > a,
 .column_pink:hover > ul > li:before {
-    color: #70293b;
+    color: var(--Column2_HighLight);
 }
 .column_pink:hover > a {
-    text-shadow: 0 0.5px #d67b96;
+    text-shadow: 0 0.5px var(--Column_Highlight_Shadow_Size) var(--Column2_HighLight_Shadow);
 }
 .column_pink > ul > li > a:hover {
-    color: #d67b96;
+    color: var(--Column2_HighLight_Hover);
 }
 
-/* green column highlight */
+/* column highlight 3 */
 .column_green:hover > a,
 .column_green:hover > ul > li:before {
-    color: #43644a;
+    color: var(--Column3_HighLight);
 }
 .column_green:hover > a {
-    text-shadow: 0 0.5px #729a64;
+    text-shadow: 0 0.5px var(--Column_Highlight_Shadow_Size) var(--Column3_HighLight_Shadow);
 }
 .column_green > ul > li > a:hover {
-    color: #91b476;
+    color: var(--Column3_HighLight_Hover);
 }
-
